@@ -7,7 +7,7 @@
 	"orientation": "any",
 	"scope": "/",
 	"short_name": "Compras",
-	"start_url": "/",
+	"start_url": "/lista-de-compras/",
 	"theme_color": "#ffffff",
 	"icons": [
 		{
