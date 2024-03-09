@@ -1,20 +1,16 @@
 {
-  "background_color": "#ffffff",
-  "dir": "ltr",
-  "display": "standalone",
-  "name": "silas97.github",
-  "orientation": "any",
-  "scope": "/",
-  "short_name": "silas97.github",
-  "start_url": "/",
-  "theme_color": "#ffffff",
-  "icons": [
-    {
-      "src": "/img/favicon.ico",
-      "type": "image/x-icon"
-    },
-    {
-      "src": "/img/icon.png"
-    }
-  ]
+	"name": "Lista de Compras",
+	"short_name": "Compras",
+	"icons": [
+		{
+			"src": "/img/icon.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+	],
+	"start_url": "/",
+	"display": "standalone",
+	"background_color": "#ffffff",
+	"theme_color": "#ffffff",
+	"lang": "pt"
 }
