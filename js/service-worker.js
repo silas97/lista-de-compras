@@ -1,25 +1,46 @@
-self.addEventListener("install", (event) => {
-  event.waitUntil(
-      caches.open("my-cache").then((cache) => {
-          return cache.addAll([
-              "./",
-              "./index.html",
-              "./css/style.css",
-              "./js/script.js",
-              "./img/icon.png",
-          ]).catch((error) => {
-              console.error('Failed to add resources to cache:', error);
-          });
-      })
-  );
+importScripts(
+	"https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js"
+);
+
+const CACHE = "pwabuilder-page";
+
+const offlineFallbackPage = "./pages/offline.html";
+
+self.addEventListener("message", (event) => {
+	if (event.data && event.data.type === "SKIP_WAITING") {
+		self.skipWaiting();
+	}
 });
 
+self.addEventListener("install", async (event) => {
+	event.waitUntil(
+		caches.open(CACHE).then((cache) => cache.add(offlineFallbackPage))
+	);
+});
+
+if (workbox.navigationPreload.isSupported()) {
+	workbox.navigationPreload.enable();
+}
+
 self.addEventListener("fetch", (event) => {
-  event.respondWith(
-      caches.match(event.request).then((response) => {
-          return response || fetch(event.request);
-      }).catch((error) => {
-          console.error('Error fetching resource from cache:', error);
-      })
-  );
+	if (event.request.mode === "navigate") {
+		event.respondWith(
+			(async () => {
+				try {
+					const preloadResp = await event.preloadResponse;
+
+					if (preloadResp) {
+						return preloadResp;
+					}
+
+					const networkResp = await fetch(event.request);
+					return networkResp;
+				} catch (error) {
+					const cache = await caches.open(CACHE);
+					const cachedResp = await cache.match(offlineFallbackPage);
+					return cachedResp;
+				}
+			})()
+		);
+	}
 });
