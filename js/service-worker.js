@@ -14,7 +14,11 @@ self.addEventListener("message", (event) => {
 
 self.addEventListener("install", async (event) => {
 	event.waitUntil(
-		caches.open(CACHE).then((cache) => cache.add(offlineFallbackPage))
+		caches.open(CACHE).then((cache) => {
+			return cache.addAll([offlineFallbackPage]).catch((error) => {
+				console.error('Failed to add offline page to cache:', error);
+			});
+		})
 	);
 });
 
