@@ -2,199 +2,200 @@
 <html lang="pt-br" data-bs-theme="dark">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<!-- Required meta tags -->
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <!-- Favicon -->
-    <link rel="icon" href="./img/favicon.ico" type="image/x-icon" />
+	<!-- Favicon -->
+	<link rel="icon" href="./img/favicon.ico" type="image/x-icon" />
 
-    <!-- Vue -->
-    <script defer src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+	<!-- Vue -->
+	<script defer src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        crossorigin="anonymous" />
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+		crossorigin="anonymous" />
 
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css" />
+	<!-- Bootstrap Icons -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet" />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+		rel="stylesheet" />
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="./css/style.css">
+	<!-- CSS -->
+	<link rel="stylesheet" href="./css/style.css" />
 
-    <!-- JS -->
-    <script type="module" src="./js/script.js"></script>
+	<!-- JS -->
+	<script type="module" src="./js/script.js"></script>
 
-    <!-- Bootstrap JS -->
-    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-        crossorigin="anonymous"></script>
+	<!-- Bootstrap JS -->
+	<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+		crossorigin="anonymous"></script>
 
-    <!-- PWA -->
-    <link rel="manifest" href="./js/manifest.json" />
-    <meta name="theme-color" content="#ffffff" />
-    <link rel="apple-touch-icon" href="./img/icon.png" />
+	<!-- PWA -->
+	<link rel="manifest" href="./js/manifest.json" />
+	<meta name="theme-color" content="#ffffff" />
+	<link rel="apple-touch-icon" href="./img/icon.png" />
 
-    <!-- Enable PWA -->
-    <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('js/service-worker.js')
-                .then(registration => {
-                    console.log('Service Worker registrado com sucesso:', registration);
-                })
-                .catch(error => {
-                    console.log('Falha ao registrar o Service Worker:', error);
-                });
-        }
-    </script>
+	<!-- Enable PWA -->
+	<script>
+		if ("serviceWorker" in navigator) {
+			navigator.serviceWorker
+				.register("./js/service-worker.js")
+				.then((registration) => {
+					console.log("Service Worker registrado com sucesso:", registration);
+				})
+				.catch((error) => {
+					console.log("Falha ao registrar o Service Worker:", error);
+				});
+		}
+	</script>
 
-    <title>Lista de Compras</title>
+	<title>Lista de Compras</title>
 </head>
 
 <body>
-    <div id="app" class="container">
-        <h2 class="text-center pt-3">Gerenciar Compras</h2>
+	<div id="app" class="container">
+		<h2 class="text-center pt-3">Gerenciar Compras</h2>
 
-        <hr />
+		<hr />
 
-        <form id="formContainer">
-            <h4>Formulário de Produto</h4>
+		<form id="formContainer">
+			<h4>Formulário de Produto</h4>
 
-            <div class="col-12 mb-3">
-                <label for="productNameInput" class="form-label">Nome do Produto</label>
-                <input class="form-control" id="productNameInput" placeholder="Nome do produto"
-                    v-model="productForm.name" />
-            </div>
-            <div class="col-12">
-                <div class="row">
-                    <div class="col-6 mb-3">
-                        <label for="quantityInput" class="form-label">Quantidade</label>
-                        <input class="form-control" id="quantityInput" v-model="productForm.quantity" type="number"
-                            placeholder="Quantidade do produto" />
-                    </div>
+			<div class="col-12 mb-3">
+				<label for="productNameInput" class="form-label">Nome do Produto</label>
+				<input class="form-control" id="productNameInput" placeholder="Nome do produto"
+					v-model="productForm.name" />
+			</div>
+			<div class="col-12">
+				<div class="row">
+					<div class="col-6 mb-3">
+						<label for="quantityInput" class="form-label">Quantidade</label>
+						<input class="form-control" id="quantityInput" v-model="productForm.quantity" type="number"
+							placeholder="Quantidade do produto" />
+					</div>
 
-                    <div class="col-6 mb-3">
-                        <label for="priceInput" class="form-label">Preço</label>
-                        <input class="form-control" id="priceInput" v-model="productForm.price" type="number"
-                            placeholder="Preço do produto" />
-                    </div>
-                </div>
-            </div>
+					<div class="col-6 mb-3">
+						<label for="priceInput" class="form-label">Preço</label>
+						<input class="form-control" id="priceInput" v-model="productForm.price" type="number"
+							placeholder="Preço do produto" />
+					</div>
+				</div>
+			</div>
 
-            <div class="row">
-                <div class="col">
-                    <button class="btn btn-primary me-1" @click="saveProduct" type="button">
-                        <i class="bi bi-check"></i> Salvar
-                    </button>
-                </div>
-            </div>
-        </form>
+			<div class="row">
+				<div class="col">
+					<button class="btn btn-primary me-1" @click="saveProduct" type="button">
+						<i class="bi bi-check"></i> Salvar
+					</button>
+				</div>
+			</div>
+		</form>
 
-        <hr />
+		<hr />
 
-        <div class="mb-3">
-            <label for="searchInput" class="form-label">Pesquisar</label>
-            <input class="form-control" id="searchInput" placeholder="Pesquisar produto" v-model="searchText" />
-        </div>
+		<div class="mb-3">
+			<label for="searchInput" class="form-label">Pesquisar</label>
+			<input class="form-control" id="searchInput" placeholder="Pesquisar produto" v-model="searchText" />
+		</div>
 
-        <div class="mt-3 mb-3" style="max-height: 300px; overflow-y: auto">
-            <table class="table table-dark table-striped table-hover table-bordered table-sm">
-                <thead>
-                    <tr>
-                        <th @click="sortBy('id')">
-                            #
-                            <i v-if="sortColumn === 'id' && sortDirection === 'asc'" class="bi bi-arrow-up"></i>
-                            <i v-if="sortColumn === 'id' && sortDirection === 'desc'" class="bi bi-arrow-down"></i>
-                        </th>
-                        <th @click="sortBy('name')">
-                            Nome
-                            <i v-if="sortColumn === 'name' && sortDirection === 'asc'" class="bi bi-arrow-up"></i>
-                            <i v-if="sortColumn === 'name' && sortDirection === 'desc'" class="bi bi-arrow-down"></i>
-                        </th>
-                        <th @click="sortBy('quantity')">
-                            Qtd.
-                            <i v-if="sortColumn === 'quantity' && sortDirection === 'asc'" class="bi bi-arrow-up"></i>
-                            <i v-if="sortColumn === 'quantity' && sortDirection === 'desc'"
-                                class="bi bi-arrow-down"></i>
-                        </th>
-                        <th @click="sortBy('price')">
-                            Preço
-                            <i v-if="sortColumn === 'price' && sortDirection === 'asc'" class="bi bi-arrow-up"></i>
-                            <i v-if="sortColumn === 'price' && sortDirection === 'desc'" class="bi bi-arrow-down"></i>
-                        </th>
-                        <th @click="sortTotal">
-                            Total
-                            <i v-if="sortColumn === 'total' && sortDirection === 'asc'" class="bi bi-arrow-up"></i>
-                            <i v-if="sortColumn === 'total' && sortDirection === 'desc'" class="bi bi-arrow-down"></i>
-                        </th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="(item, index) in filteredProducts" :key="item.id">
-                        <td>{{ item.id }}</td>
-                        <td contenteditable @blur="updateProductName(item, $event)">
-                            {{ item.name }}
-                        </td>
-                        <td contenteditable @blur="updateProductQuantity(item, $event)">
-                            {{ item.quantity }}
-                        </td>
-                        <td contenteditable @blur="updateProductPrice(item, $event)">
-                            {{ item.price.toLocaleString('pt-BR', { style: 'currency',
-                            currency: 'BRL' }) }}
-                        </td>
-                        <td>
-                            {{ (item.quantity * item.price).toLocaleString('pt-BR', { style:
-                            'currency', currency: 'BRL' }) }}
-                        </td>
-                        <td class="text-center">
-                            <button class="btn btn-danger btn-sm" @click="deleteProduct(item)">
-                                <i class="bi bi-trash"></i>
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+		<div class="mt-3 mb-3" style="max-height: 300px; overflow-y: auto">
+			<table class="table table-dark table-striped table-hover table-bordered table-sm">
+				<thead>
+					<tr>
+						<th @click="sortBy('id')">
+							#
+							<i v-if="sortColumn === 'id' && sortDirection === 'asc'" class="bi bi-arrow-up"></i>
+							<i v-if="sortColumn === 'id' && sortDirection === 'desc'" class="bi bi-arrow-down"></i>
+						</th>
+						<th @click="sortBy('name')">
+							Nome
+							<i v-if="sortColumn === 'name' && sortDirection === 'asc'" class="bi bi-arrow-up"></i>
+							<i v-if="sortColumn === 'name' && sortDirection === 'desc'" class="bi bi-arrow-down"></i>
+						</th>
+						<th @click="sortBy('quantity')">
+							Qtd.
+							<i v-if="sortColumn === 'quantity' && sortDirection === 'asc'" class="bi bi-arrow-up"></i>
+							<i v-if="sortColumn === 'quantity' && sortDirection === 'desc'"
+								class="bi bi-arrow-down"></i>
+						</th>
+						<th @click="sortBy('price')">
+							Preço
+							<i v-if="sortColumn === 'price' && sortDirection === 'asc'" class="bi bi-arrow-up"></i>
+							<i v-if="sortColumn === 'price' && sortDirection === 'desc'" class="bi bi-arrow-down"></i>
+						</th>
+						<th @click="sortTotal">
+							Total
+							<i v-if="sortColumn === 'total' && sortDirection === 'asc'" class="bi bi-arrow-up"></i>
+							<i v-if="sortColumn === 'total' && sortDirection === 'desc'" class="bi bi-arrow-down"></i>
+						</th>
+						<th>Ações</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr v-for="(item, index) in filteredProducts" :key="item.id">
+						<td>{{ item.id }}</td>
+						<td contenteditable @blur="updateProductName(item, $event)">
+							{{ item.name }}
+						</td>
+						<td contenteditable @blur="updateProductQuantity(item, $event)">
+							{{ item.quantity }}
+						</td>
+						<td contenteditable @blur="updateProductPrice(item, $event)">
+							{{ item.price.toLocaleString('pt-BR', { style: 'currency',
+							currency: 'BRL' }) }}
+						</td>
+						<td>
+							{{ (item.quantity * item.price).toLocaleString('pt-BR', { style:
+							'currency', currency: 'BRL' }) }}
+						</td>
+						<td class="text-center">
+							<button class="btn btn-danger btn-sm" @click="deleteProduct(item)">
+								<i class="bi bi-trash"></i>
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 
-        <hr />
+		<hr />
 
-        <div class="mt-3 mb-3" style="max-height: 180px; overflow-y: auto">
-            <h4>Resumo dos Produtos</h4>
-            <table class="table table-dark table-striped table-hover table-bordered table-sm">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Resumo</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Total de Produtos</td>
-                        <td>{{ filteredProducts.length }}</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Total de Itens</td>
-                        <td>{{ totalQuantity }}</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Soma Total dos Produtos</td>
-                        <td>{{ totalSum }}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+		<div class="mt-3 mb-3" style="max-height: 180px; overflow-y: auto">
+			<h4>Resumo dos Produtos</h4>
+			<table class="table table-dark table-striped table-hover table-bordered table-sm">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Resumo</th>
+						<th>Status</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td>Total de Produtos</td>
+						<td>{{ filteredProducts.length }}</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>Total de Itens</td>
+						<td>{{ totalQuantity }}</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>Soma Total dos Produtos</td>
+						<td>{{ totalSum }}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 
-        <hr />
-    </div>
+		<hr />
+	</div>
 </body>
 
 </html>
