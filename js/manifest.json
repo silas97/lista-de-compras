@@ -5,7 +5,7 @@
 	"lang": "pt",
 	"name": "Lista de Compras",
 	"orientation": "any",
-	"scope": "/",
+	"scope": "/lista-de-compras/",
 	"short_name": "Compras",
 	"start_url": "/lista-de-compras/",
 	"theme_color": "#ffffff",
