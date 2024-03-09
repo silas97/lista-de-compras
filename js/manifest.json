@@ -11,11 +11,11 @@
 	"theme_color": "#ffffff",
 	"icons": [
 		{
-			"src": "/img/favicon.ico",
+			"src": "img/favicon.ico",
 			"type": "image/x-icon"
 		},
 		{
-			"src": "/img/icon.png",
+			"src": "img/icon.png",
 			"sizes": "512x512",
 			"type": "image/png"
 		}
