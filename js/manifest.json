@@ -5,17 +5,17 @@
 	"lang": "pt",
 	"name": "Lista de Compras",
 	"orientation": "any",
-	"scope": "/lista-de-compras/",
+	"scope": "/",
 	"short_name": "Compras",
 	"start_url": "/lista-de-compras/",
 	"theme_color": "#ffffff",
 	"icons": [
 		{
-			"src": "img/favicon.ico",
+			"src": "./img/favicon.ico",
 			"type": "image/x-icon"
 		},
 		{
-			"src": "img/icon.png",
+			"src": "./img/icon.png",
 			"sizes": "512x512",
 			"type": "image/png"
 		}
