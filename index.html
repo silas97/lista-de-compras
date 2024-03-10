@@ -65,18 +65,18 @@
 		<form id="formContainer">
 			<h4><i class="bi bi-clipboard"></i> Cadastro de Produto</h4>
 
-			<div class="col-12 mb-3">
-				<label for="productNameInput" class="form-label">Nome</label>
-				<div class="input-group mb-3">
-					<span class="input-group-text">
-						<i class="bi bi-type"></i>
-					</span>
-					<input type="text" class="form-control" id="productNameInput" placeholder="Nome" v-model="productForm.name">
-				</div>
-			</div>
 			<div class="col-12">
 				<div class="row">
-					<div class="col-6 mb-3">
+					<div class="col-6">
+						<label for="productNameInput" class="form-label">Nome</label>
+						<div class="input-group mb-3">
+							<span class="input-group-text">
+								<i class="bi bi-type"></i>
+							</span>
+							<input type="text" class="form-control" id="productNameInput" placeholder="Nome" v-model="productForm.name">
+						</div>
+					</div>
+					<div class="col-6">
 						<label for="quantityInput" class="form-label">Quantidade</label>
 						<div class="input-group mb-3">
 							<span class="input-group-text">
@@ -86,8 +86,11 @@
 								placeholder="Quantidade" />
 						</div>
 					</div>
-
-					<div class="col-6 mb-3">
+				</div>
+			</div>
+			<div class="col-12">
+				<div class="row">
+					<div class="col-6">
 						<label for="priceInput" class="form-label">Preço</label>
 						<div class="input-group mb-3">
 							<span class="input-group-text">
@@ -97,14 +100,13 @@
 								placeholder="Preço" />
 						</div>
 					</div>
-				</div>
-			</div>
 
-			<div class="row">
-				<div class="col">
-					<button class="btn btn-primary me-1" @click="saveProduct" type="button">
-						<i class="bi bi-cart-plus-fill"></i> Adicionar
-					</button>
+					<div class="col-6">
+						<label for="" class="form-label" style="visibility: hidden;">Adicionar</label>
+						<button class="form-control btn btn-primary" @click="saveProduct" type="button">
+							<i class="bi bi-cart-plus-fill"></i> Adicionar
+						</button>
+					</div>
 				</div>
 			</div>
 		</form>
